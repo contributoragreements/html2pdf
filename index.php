@@ -10,21 +10,37 @@
     $getdate = date('Y-m-d-H_i_s');
     $gethash = md5(date('Ymdgisu'));
 
+    $doDebug = false;
+
     $error_message = '<h4>Your PDF file could not be generated. Please contact <a href="mailto:support@fabricatorz.com">support@fabricatorz.com</a>.</h4>';
 
-    $html       = $_REQUEST['htmlstore'];
+    $html = '';
+    // if htmlstore exists, get it, if need more than one type, then
+    // only get one of the types sent over
+    if ( !empty($_REQUEST['htmlstore']) )
+        $html       = $_REQUEST['htmlstore'];
+    elseif ( !empty($_REQUEST['type']) && 
+             isset($_REQUEST['htmlstore-' . $_REQUEST['type']]) )
+    {
+        $html = $_REQUEST['htmlstore-' . $_REQUEST['type']];
+    }
     $filename   = make_seo_url($_REQUEST['title']) . "-" . $getdate;
 
     $file_html = "/tmp/" . $filename . ".html";
     $file_pdf  = "/tmp/" . $filename . ".pdf";
  
-    /*
-    echo "<p>$file_html</p>";
-    echo "<p>$file_pdf</p>";
-    echo $title;
-    echo $html;
-    exit;
-    */
+    if ( $doDebug )
+    {
+        echo "<pre>";
+        var_dump($_REQUEST);
+        var_dump($html);
+        echo "</pre>";
+        echo "<p>$file_html</p>";
+        echo "<p>$file_pdf</p>";
+        echo $title;
+        echo $html;
+        exit;
+    }
 
     if ( empty($html) || ( FALSE !== file_put_contents($file_html, $html) ) )
     {
