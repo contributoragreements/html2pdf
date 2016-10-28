@@ -5,7 +5,7 @@
     #
     # NOTE: You need a custom compiled version of wkhtmltodpdf with qt that
     # does not need X server, so statically compiled is the best
-    $html2pdf = '/usr/local/bin/wkhtmltopdf-amd64';
+    $html2pdf = '/app/bin/wkhtmltopdf';
 
     $getdate = date('Y-m-d-H_i_s');
     $gethash = md5(date('Ymdgisu'));
