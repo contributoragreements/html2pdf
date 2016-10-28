@@ -1,0 +1,15 @@
+{
+  "name": "FAB2PDF generator",
+  "description": "This services takes HTML and converts it into a PDF file",
+  "repository": "https://github.com/step21/html2pdf-1",
+  "keywords": ["php", "wk2html", "pdf", "html"],
+  "website": "http://github.com/step21",
+  "buildpacks": [
+    {
+      "url": "heroku/php"
+    },
+    {
+      "url": "https://github.com/dscout/wkhtmltopdf-buildpack.git"
+    }
+  ]
+}
