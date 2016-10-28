@@ -7,9 +7,6 @@
   "buildpacks": [
     {
       "url": "heroku/php"
-    },
-    {
-      "url": "https://github.com/dscout/wkhtmltopdf-buildpack.git"
     }
   ]
 }
