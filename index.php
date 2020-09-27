@@ -11,8 +11,9 @@
     $gethash = md5(date('Ymdgisu'));
 
     $doDebug = false;
+    $encoding = "utf-8";
 
-    $error_message = '<h4>Your PDF file could not be generated. Please contact <a href="mailto:support@fabricatorz.com">support@fabricatorz.com</a>.</h4>';
+    $error_message = '<h4>Your PDF file could not be generated. Please contact <a href="mailto:admin@contributoragreements.org">admin@contributoragreements.org</a>.</h4>';
 
     $html = '';
     // if htmlstore exists, get it, if need more than one type, then
@@ -44,7 +45,7 @@
 
     if ( empty($html) || ( FALSE !== file_put_contents($file_html, $html) ) )
     {
-        $cmd = escapeshellcmd("$html2pdf '$file_html' '$file_pdf'");
+        $cmd = escapeshellcmd("$html2pdf --encoding=$encoding '$file_html' '$file_pdf'");
         exec($cmd);
 
         if (file_exists($file_pdf))
