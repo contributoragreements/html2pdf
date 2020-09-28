@@ -45,6 +45,7 @@
 
     if ( empty($html) || ( FALSE !== file_put_contents($file_html, $html) ) )
     {
+      // encoding is set fixed to utf-8 for now
         $cmd = escapeshellcmd("$html2pdf --encoding $encoding '$file_html' '$file_pdf'");
         exec($cmd);
 
