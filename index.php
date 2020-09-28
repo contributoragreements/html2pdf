@@ -10,8 +10,7 @@
     $getdate = date('Y-m-d-H_i_s');
     $gethash = md5(date('Ymdgisu'));
 
-    // this does not seem to have any effect
-    $doDebug = true;
+    $doDebug = false;
     $encoding = "utf-8";
 
     $error_message = '<h4>Your PDF file could not be generated. Please contact <a href="mailto:admin@contributoragreements.org">team@contributoragreements.org</a>.</h4>';
@@ -20,7 +19,8 @@
     // if htmlstore exists, get it, if need more than one type, then
     // only get one of the types sent over
     if ( !empty($_REQUEST['htmlstore']) )
-        $html       = $_REQUEST['htmlstore'];
+      $html       = $_REQUEST['htmlstore'];
+      
     elseif ( !empty($_REQUEST['type']) && 
              isset($_REQUEST['htmlstore-' . $_REQUEST['type']]) )
     {
