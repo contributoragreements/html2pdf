@@ -48,7 +48,7 @@
     {
     // This is the command used  
     // encoding is set fixed to utf-8 for now
-        $cmd = escapeshellcmd("$html2pdf --encoding $encoding '$file_html' '$file_pdf'");
+        $cmd = escapeshellcmd("$html2pdf --encoding '$encoding' '$file_html' '$file_pdf'");
         exec($cmd);
 
         if (file_exists($file_pdf))
