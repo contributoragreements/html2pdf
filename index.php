@@ -13,7 +13,7 @@
     $doDebug = false;
     $encoding = "utf-8";
 
-    $error_message = '<h4>Your PDF file could not be generated. Please contact <a href="mailto:admin@contributoragreements.org">team@contributoragreements.org</a>.</h4>';
+    $error_message = '<h4>Your PDF file could not be generated. Please contact <a href="mailto:team@contributoragreements.org">team@contributoragreements.org</a>.</h4>';
 
     $html = '';
     // if htmlstore exists, get it, if need more than one type, then
