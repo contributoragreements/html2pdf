@@ -10,7 +10,7 @@
     $getdate = date('Y-m-d-H_i_s');
     $gethash = md5(date('Ymdgisu'));
 
-    $doDebug = false;
+    $doDebug = true;
     $encoding = "utf-8";
 
     $error_message = '<h4>Your PDF file could not be generated. Please contact <a href="mailto:admin@contributoragreements.org">team@contributoragreements.org</a>.</h4>';
@@ -45,7 +45,8 @@
 
     if ( empty($html) || ( FALSE !== file_put_contents($file_html, $html) ) )
     {
-      // encoding is set fixed to utf-8 for now
+    // This is the command used  
+    // encoding is set fixed to utf-8 for now
         $cmd = escapeshellcmd("$html2pdf --encoding $encoding '$file_html' '$file_pdf'");
         exec($cmd);
 
