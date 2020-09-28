@@ -10,6 +10,7 @@
     $getdate = date('Y-m-d-H_i_s');
     $gethash = md5(date('Ymdgisu'));
 
+    // this does not seem to have any effect
     $doDebug = true;
     $encoding = "utf-8";
 
